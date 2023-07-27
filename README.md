@@ -1,45 +1,86 @@
-# Amazon-Fine-Food-Reviews-Sentiment_Analysis
+# Amazon Fine Food Reviews Sentiment Analysis Project
 
-Objective :
+## Overview
 
-The main goal of the project is to analyze some large dataset and perform sentiment classification on it. Sentiment classification is a type of text classification in which a given text is classified according to the sentimental polarity of the opinion it contains. For the purpose of this project the Amazon Fine Food Reviews dataset, which is available on Kaggle, is being used.
+This project is focused on performing sentiment analysis on Amazon Fine Food Reviews using natural language processing techniques. The goal is to build a model that can accurately predict whether a review is positive or negative based on the text content.
 
-Following sections describe the important phases of Sentiment Classification: the Exploratory Data Analysis for the dataset, the preprocessing steps done on the data, learning algorithms applied and the results they gave and finally the analysis from those results.
+## Dataset
 
-Context:
+The dataset used in this project is the Amazon Fine Food Reviews dataset, which can be obtained from the following link: [Amazon Fine Food Reviews Dataset](https://www.kaggle.com/snap/amazon-fine-food-reviews)
 
-- This dataset consists of reviews of fine foods from amazon.
-- The data span a period of more than 10 years, including all ~500,000 reviews up to October 2012.
-- Reviews include product and user information, ratings, and a plain text review.
-- It also includes reviews from all other Amazon categories.
+The dataset consists of reviews for various food products available on Amazon, along with corresponding ratings and textual reviews. The data has been preprocessed to remove any personal information.
 
-Data Includes:
+## Project Structure
 
-- 568,454 reviews
-- 256,059 users
-- 74,258 products
-- 260 users with > 50 reviews
+The project repository is organized as follows:
 
-Feature Information:
+```
+|-- data/
+|   |-- Reviews.csv
+|
+|-- notebooks/
+|   |-- Exploratory_Data_Analysis.ipynb
+|   |-- Data_Preprocessing.ipynb
+|   |-- Sentiment_Analysis_Model.ipynb
+|
+|-- src/
+|   |-- data_loader.py
+|   |-- data_preprocessor.py
+|   |-- sentiment_analysis.py
+|
+|-- models/
+|   |-- sentiment_model.pkl
+|
+|-- README.md
+|-- requirements.txt
+```
 
-- IdRow Id
-- ProductIdUnique identifier for the product
-- UserIdUnqiue identifier for the user
-- ProfileNameProfile name of the user
-- HelpfulnessNumeratorNumber of users who found the review helpful
-- HelpfulnessDenominatorNumber of users who indicated whether they found the review helpful
-- ScoreRating between 1 and 5
-- TimeTimestamp for the review
-- SummaryBrief summary of the review
-- TextText of the review
+- **data**: Contains the dataset file `Reviews.csv`.
+- **notebooks**: Jupyter notebooks for various stages of the project, such as data exploration, data preprocessing, and building the sentiment analysis model.
+- **src**: Python source code for data loading, data preprocessing, and the sentiment analysis model.
+- **models**: The trained sentiment analysis model stored as `sentiment_model.pkl`.
+- **README.md**: The readme file you are currently reading.
+- **requirements.txt**: A list of required Python libraries and their versions.
 
-Text Preprocessing techniques used:
+## Getting Started
 
-- BOW
-- TFIDF (simply replace the BOW preprocessing technique by TFIDF at every place.)
+1. Clone this repository to your local machine using:
 
-Preparing Data for model:
+```
+git clone https://github.com/your-username/amazon-fine-food-reviews-sentiment-analysis.git
+cd amazon-fine-food-reviews-sentiment-analysis
+```
 
-- Numerical Conversion: 
-- SVM assumes that you have inputs are numerical instead of categorical. So you can convert them using one of the most commonly used "one hot encoding , label-encoding etc".
-- Binary Conversion: - Since SVM is able to classify only binary data so you would need to convert the multi-dimensional dataset into binary form using (one vs the rest method / one vs one method) conversion method.
+2. Install the required dependencies using pip:
+
+```
+pip install -r requirements.txt
+```
+
+3. Download the dataset from the provided Kaggle link and place it in the `data` folder.
+
+4. Launch Jupyter Notebook and explore the project notebooks in the `notebooks` directory to understand the project workflow.
+
+## Data Preprocessing
+
+Before building the sentiment analysis model, the textual data needs to be preprocessed. This involves steps such as removing stop words, tokenization, and stemming or lemmatization. The `Data_Preprocessing.ipynb` notebook in the `notebooks` directory demonstrates this process.
+
+## Sentiment Analysis Model
+
+The sentiment analysis model is built using machine learning techniques to predict whether a review is positive or negative. The `Sentiment_Analysis_Model.ipynb` notebook in the `notebooks` directory contains the model building process.
+
+## Using the Trained Model
+
+Once the model is trained, you can use it to perform sentiment analysis on new textual data. The trained model is stored in `models/sentiment_model.pkl`. An example of how to use the model is provided in the `Sentiment_Analysis_Model.ipynb` notebook.
+
+## Contributing
+
+If you would like to contribute to this project, feel free to open issues, suggest improvements, or submit pull requests. Your contributions are greatly appreciated!
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+Feel free to update and customize the above template according to your actual project details. Add more information about the model's performance, evaluation metrics, and any other relevant details.
